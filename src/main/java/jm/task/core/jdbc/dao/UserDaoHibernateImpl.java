@@ -1,7 +1,11 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -12,7 +16,14 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-
+//        try (Connection connection = Util.getConnection();
+//             Statement statement = connection.createStatement()) {
+//            String create = "create table if not exists Users (id int primary key auto_increment, name varchar(20), lastname varchar(20), age tinyint)";
+//            statement.execute(create);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            throw new RuntimeException();
+//        }
     }
 
     @Override
