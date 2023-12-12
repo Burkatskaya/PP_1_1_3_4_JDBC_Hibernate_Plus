@@ -59,7 +59,6 @@ public class Util {
                 settings.put(Environment.URL, URL);
                 settings.put(Environment.USER, USERNAME);
                 settings.put(Environment.PASS, PASSWORD);
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
@@ -78,6 +77,7 @@ public class Util {
         }
         return sessionFactory;
     }
+
     public static void closeConnection() {
         try {
             Util.getConnection().close();
@@ -85,5 +85,9 @@ public class Util {
             e.printStackTrace();
             throw new RuntimeException();
         }
+    }
+
+    public static void closeSessionFactory() {
+        Util.getSessionFactory().close();
     }
 }

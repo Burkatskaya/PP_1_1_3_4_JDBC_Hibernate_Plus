@@ -2,7 +2,6 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,7 +18,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
-            String create = "create table if not exists Users (id int primary key auto_increment, name varchar(20), lastname varchar(20), age tinyint)";
+            String create = "create table if not exists Users (id bigint primary key auto_increment, name varchar(20), lastname varchar(20), age tinyint)";
             statement.execute(create);
         } catch (SQLException e) {
             e.printStackTrace();
